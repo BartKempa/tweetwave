@@ -34,3 +34,12 @@ a {
 .login-button:hover {
     opacity: 75%;
 }
+
+.tweet {
+    border: 1px;
+    border-style: solid;
+    border-color: lightgray;
+    border-width: 1px;
+    padding: 8px;
+
+}
