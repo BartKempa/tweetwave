@@ -44,11 +44,12 @@ a {
 .tweet {
     margin-left: 10px;
     margin-right: 10px;
-    border: 1px;
-    border-style: solid;
-    border-color: lightgray;
-    border-width: 1px;
+    border: 1px solid lightgray;
     padding: 12px;
+}
+
+.tweet:hover {
+    background-color: rgb(240, 240, 240);
 }
 
 .tweet-bar {
