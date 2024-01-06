@@ -6,11 +6,16 @@ body {
 a {
     text-decoration: none;
 }
-
+.container {
+    max-width: 1000px;
+    margin: auto;
+}
 .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 12px;
 }
 
 .logo {
@@ -37,11 +42,13 @@ a {
 }
 
 .tweet {
+    margin-left: 10px;
+    margin-right: 10px;
     border: 1px;
     border-style: solid;
     border-color: lightgray;
     border-width: 1px;
-    padding: 18px;
+    padding: 12px;
 }
 
 .tweet-bar {
@@ -49,7 +56,7 @@ a {
     align-items: center;
     justify-content: space-between;
     font-size: 16px;
-    margin-top: 15px;
+    margin-top: 5px;
     margin-right: 40px;
     margin-left: 40px;
 }
