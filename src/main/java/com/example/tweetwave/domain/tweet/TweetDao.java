@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,6 +43,15 @@ public class TweetDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private Tweet mapRow(ResultSet resultSet) throws SQLException {
+        int tweetId = resultSet.getInt("id");
+        int userId = resultSet.getInt("user_id");
+        String description = resultSet.getString("description");
+        LocalDateTime dateAdded = (LocalDateTime) resultSet.getObject("date_added");
+        String url = resultSet.getString("url");
+        return new Tweet(tweetId, userId, description, dateAdded, url);
     }
 
 }
