@@ -20,6 +20,5 @@ public class HomeController extends HttpServlet {
         List<TweetDto> tweets = tweetService.findAll();
         req.setAttribute("tweets", tweets);
         req.getRequestDispatcher("/index.jsp").forward(req, resp);
-
     }
 }

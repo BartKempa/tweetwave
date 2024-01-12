@@ -15,7 +15,7 @@ public class DataSourceProvider {
         if (dataSource == null) {
             Context initContext = new InitialContext();
             Context envContext = (Context) initContext.lookup("java:comp/env/");
-            dataSource = (DataSource) envContext.lookup("jdbc/tweet_wave");
+            dataSource = (DataSource) envContext.lookup("jdbc/tweetwave");
         }
         return dataSource;
     }

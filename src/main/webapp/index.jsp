@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <title>TweetWave</title>
-    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/2d69f1a690.js" crossorigin="anonymous"></script>
 </head>
@@ -23,10 +23,10 @@
             <c:forEach var="tweet" items="${requestScope.tweets}">
                 <article class="tweet">
                     <h2>Dodane przez Testowego w dniu ${tweet.dateAdded.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"))} </h2>
-                    <p><c:out value="${tweet.description}"</p>
+                    <p class="tweet-content"><c:out value="${tweet.description}"/>
                     <p>Dodajemy foto, </p>
                     <a href="<c:out value="${tweet.url}"/>" class="tweet-link"><c:out value="${tweet.url}"/></a>
-                    
+
                     <section class="tweet-bar">
                         <a href="#" class="comment">
                             <i class="fa-regular fa-comment"></i>
