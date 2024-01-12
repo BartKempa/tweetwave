@@ -1,9 +1,0 @@
-<Context>
-    <Resource name="jdbc/tweet_wave"
-              factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
-              type="javax.sql.DataSource"
-              username="root"
-              password="haslotestowe"
-              driverClassName="com.mysql.cj.jdbc.Driver"
-              url="jdbc:mysql://localhost:3306/tweet_wave?serverTimezone=UTC"/>
-</Context>
