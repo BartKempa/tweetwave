@@ -20,27 +20,29 @@
             <a href="#" class="login-button">Zaloguj</a>
         </nav>
         <main>
-            <article class="tweet">
-                <h2>Nick oraz emotka dodającego Tweeta oraz data dodania</h2>
-                <p>Czyli i może kupiliśmy bezsensowne z punktu cyklu życia mikrofloty śmigłowców ale za to w bieda wersji (S-70i, AW149) gdzie włoskie AW149 nie mają tak ważnych rzeczy jak instalacja do odladzania łopat.
-                    O klimatyzacji czy jakiś systemach zakłóceń/ ostrzegania nie wspomnę nawet.…</p>
-                <p>Dodajemy foto, </p>
-                <a href="#" clas="tweet-link">https://www.wyceniamy-nieruchomosci.pl</a>
-                <section class="tweet-bar">
-                    <a href="#" class="comment">
-                        <i class="fa-regular fa-comment"></i>
-                        <p class="tweet-comments">12</p>
-                    </a>
-                    <a href="#" class="tweet-like">
-                        <i class="fa-regular fa-thumbs-up"></i>
-                        <p class="tweet-likes">15</p>
-                    </a>
-                    <a href="#" class="tweet-dislike">
-                        <i class="fa-regular fa-thumbs-down"></i>
-                        <p class="tweet-dislikes">15</p>
-                    </a>
-                </section>
-            </article>
+            <c:forEach var="tweet" items="${requestScope.tweets}">
+                <article class="tweet">
+                    <h2>Dodane przez Testowego w dniu ${tweet.dateAdded.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"))} </h2>
+                    <p><c:out value="${tweet.description}"</p>
+                    <p>Dodajemy foto, </p>
+                    <a href="<c:out value="${tweet.url}"/>" class="tweet-link"><c:out value="${tweet.url}"/></a>
+                    
+                    <section class="tweet-bar">
+                        <a href="#" class="comment">
+                            <i class="fa-regular fa-comment"></i>
+                            <p class="tweet-comments">12</p>
+                        </a>
+                        <a href="#" class="tweet-like">
+                            <i class="fa-regular fa-thumbs-up"></i>
+                            <p class="tweet-likes">15</p>
+                        </a>
+                        <a href="#" class="tweet-dislike">
+                            <i class="fa-regular fa-thumbs-down"></i>
+                            <p class="tweet-dislikes">15</p>
+                        </a>
+                    </section>
+                </article>
+            </c:forEach>
         </main>
         <footer>TweetWave &#174 || &#169 BartekK 2024</footer>
     </div>
