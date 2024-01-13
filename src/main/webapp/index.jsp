@@ -22,7 +22,7 @@
         <main>
             <c:forEach var="tweet" items="${requestScope.tweets}">
                 <article class="tweet">
-                    <h2>Dodane przez Testowego w dniu ${tweet.dateAdded.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"))} </h2>
+                    <h2>Dodane przez ${tweet.tweetAuthor}, ${tweet.dateAdded.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"))} </h2>
                     <p class="tweet-content"><c:out value="${tweet.description}"/>
                     <p>Dodajemy foto, </p>
                     <a href="<c:out value="${tweet.url}"/>" class="tweet-link"><c:out value="${tweet.url}"/></a>

@@ -22,7 +22,7 @@ public class UserDao {
     public Optional<User> findById(int id){
         final String query = """
                 SELECT
-                    id, userName, email, password, registrationDate
+                    id, user_name, email, password, registration_date
                 FROM
                     user
                 WHERE
