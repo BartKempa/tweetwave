@@ -4,10 +4,8 @@ import com.example.tweetwave.configuration.DataSourceProvider;
 
 import javax.naming.NamingException;
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 public class UserDao {
@@ -41,6 +39,15 @@ public class UserDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private User mapRow(ResultSet resultSet) throws SQLException {
+        int id = resultSet.getInt("id");
+        String userName = resultSet.getString("user_name");
+        String email = resultSet.getString("email");
+        String password = resultSet.getString("password");
+        LocalDateTime registrationDate = resultSet.getObject("registration_date", LocalDateTime.class);
+        return new User(id, userName, email, password, registrationDate);
     }
 
 }
