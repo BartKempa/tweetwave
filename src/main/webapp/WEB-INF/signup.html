@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Rejestracja - TweetWave</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/main.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/forms.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/forms.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/2d69f1a690.js" crossorigin="anonymous"></script>
 </head>
@@ -18,20 +18,18 @@
         <a href="#" class="login-button">Zaloguj</a>
     </nav>
     <main>
-        <form action="#" method="post" class="sing-up-form"></form>
+        <form action="#" method="post" class="form">
             <div class="input-container">
-                <input type="text" class="input-field" id="username">
-                <label for="username">Nazwa użytkownika</label>
+                <input type="text" class="input-field" id="username" placeholder="Nazwa użytkownika">
             </div>
             <div class="input-container">
-                <input type="email" class="input-field" id="email">
-                <label for="email">Hasło</label>
+                <input type="email" class="input-field" id="email" placeholder="email">
             </div>
             <div class="input-container">
-                <input type="password" class="input-field" id="password">
-                <label for="password">Hasło</label>
+                <input type="password" class="input-field" id="password" placeholder="hasło">
             </div>
-            <button class="form-buton">Zarejetruj się</button>
+            <button class="form-button">Zarejetruj się</button>
+        </form>
     </main>
     <footer>TweetWave &#174 || &#169 BartekK 2024</footer>
 </div>
