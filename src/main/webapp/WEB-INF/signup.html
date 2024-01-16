@@ -18,7 +18,8 @@
         <a href="#" class="login-button">Zaloguj</a>
     </nav>
     <main>
-        <form action="#" method="post" class="form">
+        <form action="#" method="post" class="form" autocomplete="on">
+            <div class="form_icon" aria-hidden="true"></div>
             <div class="input-container">
                 <input type="text" class="input-field" id="username" placeholder="Nazwa użytkownika">
             </div>
@@ -28,7 +29,9 @@
             <div class="input-container">
                 <input type="password" class="input-field" id="password" placeholder="hasło">
             </div>
-            <button class="form-button">Zarejetruj się</button>
+            <div class="button-container">
+                <button class="form-button">Zarejetruj się</button>
+            </div>
         </form>
     </main>
     <footer>TweetWave &#174 || &#169 BartekK 2024</footer>
