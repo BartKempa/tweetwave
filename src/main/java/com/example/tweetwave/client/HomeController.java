@@ -19,6 +19,6 @@ public class HomeController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<TweetDto> tweets = tweetService.findAll();
         req.setAttribute("tweets", tweets);
-        req.getRequestDispatcher("/index.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/index.jsp").forward(req, resp);
     }
 }
