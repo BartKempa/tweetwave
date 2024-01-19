@@ -43,4 +43,8 @@ public class User {
     public LocalDateTime getRegistrationDate() {
         return registrationDate;
     }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 }
