@@ -13,5 +13,15 @@ public class UserService {
         userDao.saveUser(user);
     }
 
+    private static class UserMapper {
+        static User map(UserRegistrationDto userRegistrationDto){
+            return new User(
+                    userRegistrationDto.getUsername(),
+                    userRegistrationDto.getEmail(),
+                    userRegistrationDto.getPassword(),
+                    LocalDateTime.now()
+            );
+        }
+    }
 
 }
