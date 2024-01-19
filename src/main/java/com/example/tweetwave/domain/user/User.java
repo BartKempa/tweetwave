@@ -4,21 +4,21 @@ import java.time.LocalDateTime;
 
 public class User {
     private Integer id;
-    private String userName;
+    private String username;
     private String email;
     private String password;
     private LocalDateTime registrationDate;
 
-    public User(String userName, String email, String password, LocalDateTime registrationDate) {
-        this.userName = userName;
+    public User(String username, String email, String password, LocalDateTime registrationDate) {
+        this.username = username;
         this.email = email;
         this.password = password;
         this.registrationDate = registrationDate;
     }
 
-    public User(Integer id, String userName, String email, String password, LocalDateTime registrationDate) {
+    public User(Integer id, String username, String email, String password, LocalDateTime registrationDate) {
         this.id = id;
-        this.userName = userName;
+        this.username = username;
         this.email = email;
         this.password = password;
         this.registrationDate = registrationDate;
@@ -28,8 +28,8 @@ public class User {
         return id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
     public String getEmail() {

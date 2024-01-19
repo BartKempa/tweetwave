@@ -27,7 +27,7 @@ public class TweetService {
                     tweet.getDescription(),
                     tweet.getDateAdded(),
                     tweet.getUrl(),
-                    userDao.findById(tweet.getUserId()).orElseThrow().getUserName());
+                    userDao.findById(tweet.getUserId()).orElseThrow().getUsername());
         }
     }
 }
