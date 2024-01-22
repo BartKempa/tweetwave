@@ -18,9 +18,9 @@
                 TweetWave
             </a>
             <c:choose>
-                <c:when test="${empty pageContext.request.userPrincipla}">
+                <c:when test="${empty pageContext.request.userPrincipal}">
                     <a href="${pageContext.request.contextPath}/login" class="login-button">Zaloguj</a></c:when>
-                <c:when test="${not empty pageContext.request.userPrincipla}">
+                <c:when test="${not empty pageContext.request.userPrincipal}">
                     <a href="${pageContext.request.contextPath}/logout" class="login-button">Wyloguj</a>
                 </c:when>
             </c:choose>

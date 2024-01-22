@@ -25,15 +25,15 @@
             <h2 class="form-title">Zaloguj się - TweetWave</h2>
             <div class="form-icon" aria-hidden="true"></div>
             <div class="input-container">
-                <input type="email" class="input-field" name="j_email" placeholder="email">
+                <input type="text" class="input-field" name="j_username" placeholder="Nazwa użytkownika">
             </div>
             <div class="input-container">
                 <input type="password" class="input-field" name="j_password" placeholder="hasło">
             </div>
             <div class="button-container">
-                <button class="form-button">Zarejetruj się</button>
+                <button class="form-button">Zaloguj się</button>
             </div>
-            <p>Nie masz konta? <a href="${pageContext.request.contextPath}/singup">Zarejestruj się!</a></p>
+            <p>Nie masz konta? <a href="${pageContext.request.contextPath}/signup">Zarejestruj się!</a></p>
         </form>
     </main>
     <footer>TweetWave &#174 || &#169 BartekK 2024</footer>
