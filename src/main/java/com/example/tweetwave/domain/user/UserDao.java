@@ -41,7 +41,14 @@ public class UserDao {
         }
     }
 
-    public void saveUser(User user) {
+    public void save(User user){
+        saveUser(user);
+        saveUserRole(user);
+    }
+
+
+
+    private void saveUser(User user) {
         final String query = """
                 INSERT INTO 
                     user (username, email, password, registration_date)
