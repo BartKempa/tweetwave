@@ -46,6 +46,21 @@ public class UserDao {
         saveUserRole(user);
     }
 
+    private void saveUserRole(User user) {
+        final String query = """
+                INSERT INTO
+                    user_role
+                username VALUES
+                    (?)
+                """;
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, user.getUsername());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 
     private void saveUser(User user) {
@@ -68,7 +83,6 @@ public class UserDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     private User mapRow(ResultSet resultSet) throws SQLException {
