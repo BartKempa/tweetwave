@@ -24,7 +24,13 @@ public class SignupController extends HttpServlet {
         UserRegistrationDto userRegistrationDto = getUserInfo(req);
         userService.userRegistration(userRegistrationDto);
         resp.sendRedirect(req.getContextPath());
-
+    }
+    
+    private UserRegistrationDto getUserInfo(HttpServletRequest req) {
+        String username = req.getParameter("username");
+        String email = req.getParameter("email");
+        String password = req.getParameter("password");
+        return new UserRegistrationDto(username, email, password);
     }
 
 
