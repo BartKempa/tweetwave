@@ -10,7 +10,7 @@ public class UserService {
 
     public void userRegistration(UserRegistrationDto userRegistrationDto){
         User user = UserMapper.map(userRegistrationDto);
-        userDao.saveUser(user);
+        userDao.save(user);
     }
 
     private static class UserMapper {

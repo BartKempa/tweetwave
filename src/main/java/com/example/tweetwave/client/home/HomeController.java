@@ -1,4 +1,4 @@
-package com.example.tweetwave.client;
+package com.example.tweetwave.client.home;
 
 import com.example.tweetwave.domain.api.TweetDto;
 import com.example.tweetwave.domain.api.TweetService;

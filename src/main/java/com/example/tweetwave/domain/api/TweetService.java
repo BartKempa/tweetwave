@@ -19,7 +19,6 @@ public class TweetService {
                 .collect(Collectors.toList());
     }
 
-
     private static class TweetMapper {
         private final UserDao userDao = new UserDao();
         TweetDto map(Tweet tweet) {
