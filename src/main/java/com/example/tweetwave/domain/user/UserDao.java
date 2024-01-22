@@ -49,8 +49,8 @@ public class UserDao {
     private void saveUserRole(User user) {
         final String query = """
                 INSERT INTO
-                    user_role
-                username VALUES
+                    user_role (username)
+                VALUES
                     (?)
                 """;
         try (Connection connection = dataSource.getConnection();
@@ -61,7 +61,6 @@ public class UserDao {
             throw new RuntimeException(e);
         }
     }
-
 
     private void saveUser(User user) {
         final String query = """
