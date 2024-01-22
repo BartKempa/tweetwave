@@ -1,0 +1,31 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: barte
+  Date: 22.01.2024
+  Time: 14:06
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<c:forEach var="tweet" items="${requestScope.tweets}">
+    <article class="tweet">
+        <h2>Dodane przez ${tweet.tweetAuthor}, ${tweet.dateAdded.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"))} </h2>
+        <p class="tweet-content"><c:out value="${tweet.description}"/>
+        <p>Dodajemy foto, </p>
+        <a href="<c:out value="${tweet.url}"/>" class="tweet-link"><c:out value="${tweet.url}"/></a>
+
+        <section class="tweet-bar">
+            <a href="#" class="comment">
+                <i class="fa-regular fa-comment"></i>
+                <p class="tweet-comments">12</p>
+            </a>
+            <a href="#" class="tweet-like">
+                <i class="fa-regular fa-thumbs-up"></i>
+                <p class="tweet-likes">15</p>
+            </a>
+            <a href="#" class="tweet-dislike">
+                <i class="fa-regular fa-thumbs-down"></i>
+                <p class="tweet-dislikes">15</p>
+            </a>
+        </section>
+    </article>
+</c:forEach>
