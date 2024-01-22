@@ -17,7 +17,13 @@
                 <i class="fa-solid fa-dove fa-lg"></i>
                 TweetWave
             </a>
-            <a href="#" class="login-button">Zaloguj</a>
+            <c:choose>
+                <c:when test="${empty pageContext.request.userPrincipla}">
+                    <a href="${pageContext.request.contextPath}/login" class="login-button">Zaloguj</a></c:when>
+                <c:when test="${not empty pageContext.request.userPrincipla}">
+                    <a href="${pageContext.request.contextPath}/logout" class="login-button">Wyloguj</a>
+                </c:when>
+            </c:choose>
         </nav>
         <main>
             <c:forEach var="tweet" items="${requestScope.tweets}">
