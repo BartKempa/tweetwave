@@ -6,20 +6,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Rejestracja - TweetWave</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/main.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/forms.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/2d69f1a690.js" crossorigin="anonymous"></script>
+    <%@include file="../segments/stylesheet.jspf"%>
 </head>
 <body>
 <div class="container">
-    <nav class="navbar">
-        <a href="#" class="logo">
-            <i class="fa-solid fa-dove fa-lg"></i>
-            TweetWave
-        </a>
-        <a href="#" class="login-button">Zaloguj</a>
-    </nav>
+    <%@include file="../segments/header.jspf"%>
     <main>
         <form action="j_security_check" method="post" class="form" autocomplete="on">
             <h2 class="form-title">Zaloguj się - TweetWave</h2>
@@ -36,7 +28,7 @@
             <p>Nie masz konta? <a href="${pageContext.request.contextPath}/signup">Zarejestruj się!</a></p>
         </form>
     </main>
-    <footer>TweetWave &#174 || &#169 BartekK 2024</footer>
+    <%@include file="../segments/footer.jspf"%>
 </div>
 </body>
 </html>

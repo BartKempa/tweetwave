@@ -2,6 +2,7 @@ package com.example.tweetwave.client.authentication;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.HttpMethodConstraint;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.ServletSecurity;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
