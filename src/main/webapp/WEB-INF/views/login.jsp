@@ -5,7 +5,7 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>Rejestracja - TweetWave</title>
+    <title>Logowanie - TweetWave</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/forms.css">
     <%@include file="../segments/stylesheet.jspf"%>
 </head>
