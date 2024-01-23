@@ -1,0 +1,59 @@
+.add-tweet-form {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid lightgray;
+    justify-content: center;
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 26px 12px;
+    background: linear-gradient(
+            to right,
+            rgb(245, 241, 241),
+            rgb(196, 192, 192)
+    );
+}
+
+.input-container,
+.button-container {
+    margin-bottom: 22px;
+    position: relative;
+}
+
+.input-field {
+    border-radius: 12px;
+    padding: 10px 100px;
+    position: relative;
+    font-size: 14px;
+}
+
+.text-field {
+    border-radius: 12px;
+    padding: 40px 100px;
+    position: relative;
+    font-size: 16px;
+    resize: vertical;
+}
+
+.tweet-form-button {
+    background-color: dodgerblue;
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    position: relative;
+    text-align: center;
+    border-radius: 12px;
+    font-size: 20px;
+    letter-spacing: .01em;
+}
+
+.tweet-form-title {
+    font-size: 22px;
+    margin: 22px auto;
+}
+
+
+
+
+
+
