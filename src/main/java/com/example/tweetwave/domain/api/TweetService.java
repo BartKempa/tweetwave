@@ -20,7 +20,10 @@ public class TweetService {
                 .collect(Collectors.toList());
     }
 
-
+    public void add(TweetDto tweetDto){
+        Tweet tweetToSave = tweetMapper.map(tweetDto);
+        tweetDao.save(tweetToSave);
+    }
 
     private static class TweetMapper {
         private final UserDao userDao = new UserDao();
