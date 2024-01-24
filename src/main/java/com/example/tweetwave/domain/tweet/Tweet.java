@@ -11,9 +11,17 @@ public class Tweet {
     private String description;
     private LocalDateTime dateAdded;
     private String url;
-    private Part filePart;
+    private byte[] filePart;
 
-    public Tweet(Integer id, Integer userId, String description, LocalDateTime dateAdded, String url, Part filePart) {
+    public Tweet(Integer userId, String description, LocalDateTime dateAdded, String url, byte[] filePart) {
+        this.userId = userId;
+        this.description = description;
+        this.dateAdded = dateAdded;
+        this.url = url;
+        this.filePart = filePart;
+    }
+
+    public Tweet(Integer id, Integer userId, String description, LocalDateTime dateAdded, String url, byte[] filePart) {
         this.id = id;
         this.userId = userId;
         this.description = description;
@@ -21,6 +29,7 @@ public class Tweet {
         this.url = url;
         this.filePart = filePart;
     }
+
 
     public Integer getId() {
         return id;
@@ -40,6 +49,14 @@ public class Tweet {
 
     public String getUrl() {
         return url;
+    }
+
+    public byte[] getFilePart() {
+        return filePart;
+    }
+
+    public void setFilePart(byte[] filePart) {
+        this.filePart = filePart;
     }
 
     public void setId(Integer id) {

@@ -10,12 +10,9 @@
 <div class="container">
     <%@include file="../segments/header.jspf"%>
     <main>
-        <form action="${pageContext.request.contextPath}/tweet/add" method="post" class="add-tweet-form" autocomplete="off">
+        <form action="${pageContext.request.contextPath}/tweet/add" method="post" class="add-tweet-form" autocomplete="off" enctype="multipart/form-data">
             <h2 class="tweet-form-title">Dodaj nowego tweeta</h2>
 
-<%--            <div class="input-container">
-                <input type="text" class="input-field" name="title" placeholder="Tytul nowego tweeta">
-            </div>--%>
             <div class="input-container">
                 <input type="url" class="input-field" name="url" placeholder="URL">
             </div>

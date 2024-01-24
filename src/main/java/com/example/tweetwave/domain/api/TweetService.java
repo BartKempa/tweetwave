@@ -4,6 +4,7 @@ import com.example.tweetwave.domain.tweet.Tweet;
 import com.example.tweetwave.domain.tweet.TweetDao;
 import com.example.tweetwave.domain.user.UserDao;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,6 +20,8 @@ public class TweetService {
                 .collect(Collectors.toList());
     }
 
+
+
     private static class TweetMapper {
         private final UserDao userDao = new UserDao();
         TweetDto map(Tweet tweet) {
@@ -26,7 +29,21 @@ public class TweetService {
                     tweet.getDescription(),
                     tweet.getDateAdded(),
                     tweet.getUrl(),
-                    userDao.findById(tweet.getUserId()).orElseThrow().getUsername());
+                    userDao.findById(tweet.getUserId()).orElseThrow().getUsername(),
+                    tweet.getFilePart())
+                    ;
+        }
+
+        Tweet map(TweetDto tweetDto) {
+            return new Tweet(
+                    userDao.findByUserName(tweetDto.getTweetAuthor())
+                            .orElseThrow()
+                            .getId(),
+                    tweetDto.getDescription(),
+                    LocalDateTime.now(),
+                    tweetDto.getUrl(),
+                    tweetDto.getFilePart()
+            );
         }
     }
 }

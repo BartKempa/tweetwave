@@ -84,6 +84,9 @@ public class UserDao {
         }
     }
 
+
+
+
     private User mapRow(ResultSet resultSet) throws SQLException {
         int id = resultSet.getInt("id");
         String userName = resultSet.getString("username");

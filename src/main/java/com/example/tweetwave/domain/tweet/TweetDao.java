@@ -6,6 +6,7 @@ import jakarta.servlet.http.Part;
 import javax.naming.Context;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
+import java.io.IOException;
 import java.io.InputStream;
 import java.sql.*;
 import java.time.LocalDateTime;
@@ -45,39 +46,16 @@ public class TweetDao {
         }
     }
 
-    public void save(Tweet tweet){
-        final String query = """
-                INSERT INTO 
-                    tweet (user_id, description, date_added, url, photo)
-                VALUES
-                    (?,?,?,?,?)    
-                """;
-        try (Connection connection = dataSource.getConnection();
-             PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setInt(1, tweet.getUserId());
-            statement.setString(2, tweet.getDescription());
-            statement.setObject(3, tweet.getDateAdded());
-            statement.setString(4, tweet.getUrl());
 
-            statement.executeUpdate();
-            ResultSet generatedKeys = statement.getGeneratedKeys();
-            if (generatedKeys.next()){
-                tweet.setId(generatedKeys.getInt(1));
-            }
-
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
     private Tweet mapRow(ResultSet resultSet) throws SQLException {
+
         int tweetId = resultSet.getInt("id");
         int userId = resultSet.getInt("user_id");
         String description = resultSet.getString("description");
         LocalDateTime dateAdded = (LocalDateTime) resultSet.getObject("date_added");
         String url = resultSet.getString("url");
-        Part photo = (Part) resultSet.getObject("photo");
+        byte[] photo = resultSet.getBytes("photo");
         return new Tweet(tweetId, userId, description, dateAdded, url, photo);
     }
 
