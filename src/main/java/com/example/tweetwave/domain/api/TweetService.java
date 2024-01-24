@@ -33,8 +33,7 @@ public class TweetService {
                     tweet.getDateAdded(),
                     tweet.getUrl(),
                     userDao.findById(tweet.getUserId()).orElseThrow().getUsername(),
-                    tweet.getFilePart())
-                    ;
+                    tweet.getFilePart());
         }
 
         Tweet map(TweetDto tweetDto) {
