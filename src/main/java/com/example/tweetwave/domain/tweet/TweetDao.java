@@ -46,7 +46,34 @@ public class TweetDao {
         }
     }
 
+    public void save(Tweet tweet){
+        final String query = """
+                INSERT INTO 
+                    tweet (user_id, description, date_added, url, photo)
+                VALUES
+                    (?,?,?,?,?)
+                """;
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
+            statement.setInt(1, tweet.getUserId());
+            statement.setString(2, tweet.getDescription());
+            statement.setObject(3, tweet.getDateAdded());
+            statement.setString(4, tweet.getUrl());
+            if (tweet.getFilePart() != null){
+                statement.setBytes(5, tweet.getFilePart());}
+            else {
+                statement.setNull(5, java.sql.Types.BLOB);
+            }
+            statement.executeUpdate();
+            ResultSet generatedKeys = statement.getGeneratedKeys();
+            if (generatedKeys.next()){
+                tweet.setId(generatedKeys.getInt(1));
+            }
 
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     private Tweet mapRow(ResultSet resultSet) throws SQLException {
 
