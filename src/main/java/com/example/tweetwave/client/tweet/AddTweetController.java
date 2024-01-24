@@ -26,3 +26,12 @@ public class AddTweetController extends HttpServlet {
         req.getRequestDispatcher("/WEB-INF/views/add-tweet.jsp").forward(req, resp);
     }
 
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        TweetDto tweetDto = getTweetDtoInfo(req);
+        tweetService.add(tweetDto);
+        resp.sendRedirect(req.getContextPath() + "/");
+    }
+
+    
+}
