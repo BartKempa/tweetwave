@@ -33,5 +33,25 @@ public class AddTweetController extends HttpServlet {
         resp.sendRedirect(req.getContextPath() + "/");
     }
 
-    
+    private TweetDto getTweetDtoInfo(HttpServletRequest req) throws ServletException, IOException {
+        Part photoPart = req.getPart("photo");
+
+        byte[] photoBytes = null;
+
+        if (photoPart != null) {
+            try (InputStream inputStream = photoPart.getInputStream()) {
+                photoBytes = inputStream.readAllBytes();
+            } catch (IOException e) {
+                throw new ServletException("Błąd odczytu części zdjęcia", e);
+            }
+        }
+        return new TweetDto(
+                req.getParameter("description"),
+                LocalDateTime.now(),
+                req.getParameter("url"),
+                req.getUserPrincipal().getName(),
+                photoBytes
+        );
+
+    }
 }
