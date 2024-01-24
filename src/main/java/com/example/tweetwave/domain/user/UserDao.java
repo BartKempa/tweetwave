@@ -84,6 +84,27 @@ public class UserDao {
         }
     }
 
+    public Optional<User> findByUserName(String username){
+        final String query = """
+                SELECT
+                    id, username, email, password, registration_date
+                FROM
+                    user
+                WHERE
+                    username = ?
+                """;
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, username);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next())
+                return Optional.of(mapRow(resultSet));
+            else
+                return Optional.empty();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 
 
