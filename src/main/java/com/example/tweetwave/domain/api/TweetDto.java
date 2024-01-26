@@ -21,6 +21,14 @@ public class TweetDto {
         this.filePart = filePart;
     }
 
+    public TweetDto(String description, LocalDateTime dateAdded, String url, String tweetAuthor, byte[] filePart) {
+        this.description = description;
+        this.dateAdded = dateAdded;
+        this.url = url;
+        this.tweetAuthor = tweetAuthor;
+        this.filePart = filePart;
+    }
+
     public Integer getId() {
         return id;
     }
