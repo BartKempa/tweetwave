@@ -10,7 +10,9 @@
     <article class="tweet">
         <h2>Dodane przez ${tweet.tweetAuthor}, ${tweet.dateAdded.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"))} </h2>
         <p class="tweet-content"><c:out value="${tweet.description}"/>
-        <p><img src="${pageContext.request.contextPath}/photo/${tweet.id}" alt="Brak / nie działa foto" width="200" height="200"> </p>
+        <c:if test="${not empty tweet.filePart}">
+            <p><img src="${pageContext.request.contextPath}/photo/${tweet.id}" alt="Brak / nie działa foto" width="200" height="200"> </p>
+        </c:if>
         <a href="<c:out value="${tweet.url}"/>" class="tweet-link"><c:out value="${tweet.url}"/></a>
 
         <section class="tweet-bar">
