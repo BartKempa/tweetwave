@@ -13,6 +13,12 @@ public class TweetService {
     private TweetMapper tweetMapper = new TweetMapper();
 
 
+    public byte[] getPhotoById(int id){
+        return tweetDao.findTweetById(id)
+                .orElseThrow()
+                .getFilePart();
+    }
+
     public List<TweetDto> findAll(){
         return tweetDao.findAll()
                 .stream()
