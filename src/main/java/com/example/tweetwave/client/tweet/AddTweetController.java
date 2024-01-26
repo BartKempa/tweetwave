@@ -46,6 +46,7 @@ public class AddTweetController extends HttpServlet {
             }
         }
         return new TweetDto(
+                Integer.parseInt(req.getParameter("id")),
                 req.getParameter("description"),
                 LocalDateTime.now(),
                 req.getParameter("url"),

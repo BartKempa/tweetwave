@@ -13,8 +13,8 @@ public class TweetService {
     private TweetMapper tweetMapper = new TweetMapper();
 
 
-    public byte[] getPhotoById(int id){
-        return tweetDao.findTweetById(id)
+    public byte[] getPhotoById(String photoId){
+        return tweetDao.findTweetById(Integer.parseInt(photoId))
                 .orElseThrow()
                 .getFilePart();
     }
@@ -35,6 +35,7 @@ public class TweetService {
         private final UserDao userDao = new UserDao();
         TweetDto map(Tweet tweet) {
             return new TweetDto(
+                    tweet.getId(),
                     tweet.getDescription(),
                     tweet.getDateAdded(),
                     tweet.getUrl(),

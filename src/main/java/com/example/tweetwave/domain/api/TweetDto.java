@@ -5,13 +5,15 @@ import jakarta.servlet.http.Part;
 import java.time.LocalDateTime;
 
 public class TweetDto {
+    private Integer id;
     private String description;
     private LocalDateTime dateAdded;
     private String url;
     private String tweetAuthor;
     private byte[] filePart;
 
-    public TweetDto(String description, LocalDateTime dateAdded, String url, String tweetAuthor, byte[] filePart) {
+    public TweetDto(Integer id, String description, LocalDateTime dateAdded, String url, String tweetAuthor, byte[] filePart) {
+        this.id = id;
         this.description = description;
         this.dateAdded = dateAdded;
         this.url = url;
@@ -19,6 +21,9 @@ public class TweetDto {
         this.filePart = filePart;
     }
 
+    public Integer getId() {
+        return id;
+    }
     public String getDescription() {
         return description;
     }
