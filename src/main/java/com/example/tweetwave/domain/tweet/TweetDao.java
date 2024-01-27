@@ -16,7 +16,6 @@ import java.util.Optional;
 
 public class TweetDao {
     private final DataSource dataSource;
-    private InputStream inputStream = null;
 
     public TweetDao() {
         try {
