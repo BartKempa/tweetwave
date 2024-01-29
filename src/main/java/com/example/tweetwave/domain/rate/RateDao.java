@@ -21,7 +21,7 @@ public class RateDao {
     public void save(Rate rate){
         final String query = """
                 INSERT INTO
-                    rate(user_id, tweet_id, type, date_added)
+                    rate (user_id, tweet_id, type, date_added)
                 VALUES
                     (?, ?, ?, ?)
                 ON DUPLICATE KEY UPDATE

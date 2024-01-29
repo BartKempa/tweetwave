@@ -31,7 +31,7 @@ public class TweetRateController extends HttpServlet {
     private RateDto createTweetRate(HttpServletRequest req) {
         return new RateDto(
                 req.getUserPrincipal().getName(),
-                Integer.parseInt(req.getParameter("tweetId")),
+                Integer.valueOf(req.getParameter("id")),
                 req.getParameter("type")
         );
     }
