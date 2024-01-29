@@ -23,9 +23,17 @@ public class TweetRateController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RateDto rateDto = careateTweetRate(req);
+        RateDto rateDto = createTweetRate(req);
         rateService.addRate(rateDto);
         resp.sendRedirect(req.getContextPath() + "/");
     }
-    
+
+    private RateDto createTweetRate(HttpServletRequest req) {
+        return new RateDto(
+                req.getUserPrincipal().getName(),
+                Integer.parseInt(req.getParameter("tweetId")),
+                req.getParameter("type")
+        );
+    }
+
 }
