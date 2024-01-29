@@ -21,5 +21,11 @@ import java.io.IOException;
 public class TweetRateController extends HttpServlet {
     private RateService rateService = new RateService();
 
-
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        RateDto rateDto = careateTweetRate(req);
+        rateService.addRate(rateDto);
+        resp.sendRedirect(req.getContextPath() + "/");
+    }
+    
 }
