@@ -6,6 +6,7 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class RateDao {
@@ -17,7 +18,6 @@ public class RateDao {
             throw new RuntimeException(e);
         }
     }
-
     public void save(Rate rate){
         final String query = """
                 INSERT INTO
@@ -35,6 +35,30 @@ public class RateDao {
             statement.setObject(4, rate.getDateAdded());
             statement.setString(5, rate.getType().toString());
             statement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public int countLikeByTweetId(int tweetId){
+        final String query = """
+                SELECT COUNT
+                    (tweetId)
+                FROM
+                    rate
+                WHERE
+                    tweetId = ?
+                AND
+                    type = 'LIKE'
+                AS 
+                    rate_like
+                """;
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)){
+            statement.setInt(1, tweetId);
+            ResultSet resultSet = statement.executeQuery();
+            resultSet.next();
+            return resultSet.getInt("rate_like");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
