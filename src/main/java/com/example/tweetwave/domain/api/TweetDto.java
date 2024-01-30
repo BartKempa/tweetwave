@@ -11,22 +11,26 @@ public class TweetDto {
     private String url;
     private String tweetAuthor;
     private byte[] filePart;
+    private int likeRate;
 
-    public TweetDto(Integer id, String description, LocalDateTime dateAdded, String url, String tweetAuthor, byte[] filePart) {
+
+    public TweetDto(Integer id, String description, LocalDateTime dateAdded, String url, String tweetAuthor, byte[] filePart, int likeRate) {
         this.id = id;
         this.description = description;
         this.dateAdded = dateAdded;
         this.url = url;
         this.tweetAuthor = tweetAuthor;
         this.filePart = filePart;
+        this.likeRate = likeRate;
     }
 
-    public TweetDto(String description, LocalDateTime dateAdded, String url, String tweetAuthor, byte[] filePart) {
+    public TweetDto(String description, LocalDateTime dateAdded, String url, String tweetAuthor, byte[] filePart, int likeRate) {
         this.description = description;
         this.dateAdded = dateAdded;
         this.url = url;
         this.tweetAuthor = tweetAuthor;
         this.filePart = filePart;
+        this.likeRate = likeRate;
     }
 
     public Integer getId() {
@@ -50,5 +54,9 @@ public class TweetDto {
 
     public byte[] getFilePart() {
         return filePart;
+    }
+
+    public int getLikeRate() {
+        return likeRate;
     }
 }
