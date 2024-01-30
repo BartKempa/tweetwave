@@ -43,7 +43,9 @@ public class TweetService {
                     tweet.getUrl(),
                     userDao.findById(tweet.getUserId()).orElseThrow().getUsername(),
                     tweet.getFilePart(),
-                    rateDao.countLikeByTweetId(tweet.getId()));
+                    rateDao.countLikeByTweetId(tweet.getId()),
+                    rateDao.countDislikeByTweetId(tweet.getId())
+            );
         }
 
         Tweet map(TweetDto tweetDto) {

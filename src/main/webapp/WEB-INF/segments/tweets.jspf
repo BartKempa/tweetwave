@@ -31,7 +31,7 @@
             </a>
             <a href="${pageContext.request.contextPath.concat('/tweet/rate?id=').concat(tweet.id).concat('&type=DISLIKE')}" class="tweet-dislike">
                 <i class="fa-regular fa-thumbs-down"></i>
-                <p class="tweet-dislikes">15</p>
+                <p class="tweet-dislikes">${tweet.dislikeRate}</p>
             </a>
         </section>
     </article>
