@@ -27,7 +27,7 @@
 
             <a href="${pageContext.request.contextPath.concat('/tweet/rate?id=').concat(tweet.id).concat('&type=LIKE')}" class="tweet-like">
                 <i class="fa-regular fa-thumbs-up"></i>
-                <p class="tweet-likes">x12</p>
+                <p class="tweet-likes">${tweet.likeRate}</p>
             </a>
             <a href="${pageContext.request.contextPath.concat('/tweet/rate?id=').concat(tweet.id).concat('&type=DISLIKE')}" class="tweet-dislike">
                 <i class="fa-regular fa-thumbs-down"></i>
