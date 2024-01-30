@@ -50,7 +50,7 @@ public class AddTweetController extends HttpServlet {
                 LocalDateTime.now(),
                 req.getParameter("url"),
                 req.getUserPrincipal().getName(),
-                photoBytes,
+                photoBytes
         );
 
     }

@@ -42,23 +42,20 @@ public class RateDao {
 
     public int countLikeByTweetId(int tweetId){
         final String query = """
-                SELECT COUNT
-                    (tweetId)
+                SELECT COUNT(tweet_id) 
                 FROM
                     rate
                 WHERE
-                    tweetId = ?
+                    tweet_id = ?
                 AND
                     type = 'LIKE'
-                AS 
-                    rate_like
                 """;
         try (Connection connection = dataSource.getConnection();
              PreparedStatement statement = connection.prepareStatement(query)){
             statement.setInt(1, tweetId);
             ResultSet resultSet = statement.executeQuery();
             resultSet.next();
-            return resultSet.getInt("rate_like");
+            return resultSet.getInt(1);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
