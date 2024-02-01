@@ -10,6 +10,7 @@ a {
     max-width: 1000px;
     margin: auto;
 }
+
 .navbar {
     display: flex;
     align-items: center;
@@ -77,9 +78,16 @@ footer {
 }
 
 .add-tweet-button {
-   
-
-
-
+    background-color: dodgerblue;
+    color: white;
+    position:fixed;
+    width:45px;
+    height:45px;
+    bottom:50px;
+    right:50px;
+    box-shadow: 3px 3px 3px rgb(128, 128, 128);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
