@@ -36,3 +36,6 @@
         </section>
     </article>
 </c:forEach>
+<a href="${pageContext.request.contextPath}/tweet/add" class="add-tweet-button">
+    <i class="fa-solid fa-circle-plus"></i>
+</a>
