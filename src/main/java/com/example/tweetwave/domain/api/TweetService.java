@@ -7,6 +7,7 @@ import com.example.tweetwave.domain.user.UserDao;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class TweetService {
@@ -31,6 +32,8 @@ public class TweetService {
         Tweet tweetToSave = tweetMapper.map(tweetDto);
         tweetDao.save(tweetToSave);
     }
+
+
 
     private static class TweetMapper {
         private final UserDao userDao = new UserDao();

@@ -10,7 +10,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <c:forEach var="tweet" items="${requestScope.tweets}">
-    <a href="#" class="tweet-href">
+    <a href="${pageContext.request.contextPath.concat('/tweet?id=?')}" class="tweet-href">
         <article class="tweet">
             <h2>Dodane przez ${tweet.tweetAuthor}, ${tweet.dateAdded.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"))} </h2>
             <p class="tweet-content"><c:out value="${tweet.description}"/>
