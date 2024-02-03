@@ -19,7 +19,7 @@ import java.io.IOException;
         }
 )
 public class SingleTweetController extends HttpServlet {
-    TweetService tweetService = new TweetService();
+    private TweetService tweetService = new TweetService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
