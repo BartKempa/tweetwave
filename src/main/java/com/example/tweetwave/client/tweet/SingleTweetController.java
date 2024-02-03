@@ -1,5 +1,6 @@
 package com.example.tweetwave.client.tweet;
 
+import com.example.tweetwave.domain.api.TweetDto;
 import com.example.tweetwave.domain.api.TweetService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.HttpMethodConstraint;
@@ -22,6 +23,10 @@ public class SingleTweetController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        int tweetId = Integer.parseInt(req.getParameter("id"));
+        TweetDto tweet = tweetService.findSingleTweet(tweetId)
+                .orElseThrow();
+        req.setAttribute("tweet", tweet);
+        req.getRequestDispatcher("/WEB-INF/views/tweet.jsp").forward(req, resp);
     }
 }

@@ -33,7 +33,10 @@ public class TweetService {
         tweetDao.save(tweetToSave);
     }
 
-
+    public Optional<TweetDto> findSingleTweet(int id){
+        return tweetDao.findTweetById(id)
+                .map(tweetMapper::map);
+    }
 
     private static class TweetMapper {
         private final UserDao userDao = new UserDao();
