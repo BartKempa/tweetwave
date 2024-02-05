@@ -14,7 +14,6 @@ public class TweetDto {
     private int likeRate;
     private int dislikeRate;
 
-
     public TweetDto(Integer id, String description, LocalDateTime dateAdded, String url, String tweetAuthor, byte[] filePart, int likeRate, int dislikeRate) {
         this.id = id;
         this.description = description;

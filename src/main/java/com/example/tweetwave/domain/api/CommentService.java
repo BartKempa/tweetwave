@@ -6,6 +6,8 @@ import com.example.tweetwave.domain.tweet.TweetDao;
 import com.example.tweetwave.domain.user.UserDao;
 
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class CommentService {
     private CommentDao commentDao = new CommentDao();
@@ -14,6 +16,13 @@ public class CommentService {
     public void add(CommentDto commentDto){
         Comment commentToSave = commentMapper.map(commentDto);
         commentDao.save(commentToSave);
+    }
+
+    public List<CommentDto> findAll(){
+        return commentDao.findAllComments()
+                .stream()
+                .map(commentMapper::map)
+                .collect(Collectors.toList());
     }
     private static class CommentMapper{
         private final UserDao userDao = new UserDao();
@@ -25,6 +34,15 @@ public class CommentService {
                     commentDto.getTweetId(),
                     LocalDateTime.now(),
                     commentDto.getDescription()
+            );
+        }
+
+        CommentDto map(Comment comment){
+            return new CommentDto(
+                    userDao.findById(comment.getUserId()).orElseThrow().getUsername(),
+                    comment.getTweetId(),
+                    comment.getDateAdded(),
+                    comment.getDescription()
             );
         }
     }
