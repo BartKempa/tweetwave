@@ -16,6 +16,14 @@ public class Comment {
         this.description = description;
     }
 
+    public Comment(Integer id, Integer userId, Integer tweetId, LocalDateTime dateAdded, String description) {
+        this.id = id;
+        this.userId = userId;
+        this.tweetId = tweetId;
+        this.dateAdded = dateAdded;
+        this.description = description;
+    }
+
     public Integer getId() {
         return id;
     }

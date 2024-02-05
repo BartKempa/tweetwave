@@ -20,7 +20,6 @@ import java.time.LocalDateTime;
 public class AddTweetController extends HttpServlet {
     private TweetService tweetService = new TweetService();
 
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("/WEB-INF/views/add-tweet.jsp").forward(req, resp);

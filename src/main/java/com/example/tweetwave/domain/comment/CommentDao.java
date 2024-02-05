@@ -5,6 +5,9 @@ import com.example.tweetwave.configuration.DataSourceProvider;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 import java.sql.*;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CommentDao {
     private DataSource dataSource;
@@ -37,5 +40,33 @@ public class CommentDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public List<Comment> findAllComments(){
+        final String query ="""
+                SELECT 
+                    id, user_id, tweet_id, date_added, description
+                FROM comment
+                """;
+        try (Connection connection = dataSource.getConnection();
+             Statement statement = connection.createStatement()){
+            List<Comment> allComments = new ArrayList<>();
+            ResultSet resultSet = statement.executeQuery(query);
+            while (resultSet.next())
+                allComments.add(mapRow(resultSet));
+            return allComments;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private Comment mapRow(ResultSet resultSet) throws SQLException {
+        return new Comment(
+                resultSet.getInt("id"),
+                resultSet.getInt("user_id"),
+                resultSet.getInt("tweet_id"),
+                (LocalDateTime) resultSet.getObject("date_added"),
+                resultSet.getString("description")
+        );
     }
 }
