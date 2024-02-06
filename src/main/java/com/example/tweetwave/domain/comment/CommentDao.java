@@ -42,16 +42,20 @@ public class CommentDao {
         }
     }
 
-    public List<Comment> findAllComments(){
+    public List<Comment> findAllComments(int tweet_id){
         final String query ="""
                 SELECT 
                     id, user_id, tweet_id, date_added, description
-                FROM comment
+                FROM 
+                    comment
+                WHERE
+                    tweet_id = ?
                 """;
         try (Connection connection = dataSource.getConnection();
-             Statement statement = connection.createStatement()){
+             PreparedStatement statement = connection.prepareStatement(query)){
+            statement.setInt(1, tweet_id);
+            ResultSet resultSet = statement.executeQuery();
             List<Comment> allComments = new ArrayList<>();
-            ResultSet resultSet = statement.executeQuery(query);
             while (resultSet.next())
                 allComments.add(mapRow(resultSet));
             return allComments;

@@ -18,8 +18,8 @@ public class CommentService {
         commentDao.save(commentToSave);
     }
 
-    public List<CommentDto> findAll(){
-        return commentDao.findAllComments()
+    public List<CommentDto> findAll(int tweetId){
+        return commentDao.findAllComments(tweetId)
                 .stream()
                 .map(commentMapper::map)
                 .collect(Collectors.toList());
