@@ -31,6 +31,7 @@ public class SingleTweetController extends HttpServlet {
         TweetDto tweet = tweetService.findSingleTweet(tweetId)
                 .orElseThrow();
         List<CommentDto> comments = commentService.findAll(tweetId);
+        req.setAttribute("comments", comments);
         req.setAttribute("tweet", tweet);
         req.getRequestDispatcher("/WEB-INF/views/tweet.jsp").forward(req, resp);
     }

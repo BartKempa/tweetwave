@@ -38,6 +38,14 @@
                 </a>
             </section>
         </article>
+
+        <c:forEach var="comment" items="${requestScope.comments}">
+                <article class="tweet">
+                    <h3>Komentarz dodany przez ${comment.commentAuthor}, ${comment.dateAdded.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"))} </h3>
+                    <p class="tweet-content"><c:out value="${comment.description}"/>
+                </article>
+        </c:forEach>
+
     </main>
     <%@include file="../segments/footer.jspf"%>
 </div>
