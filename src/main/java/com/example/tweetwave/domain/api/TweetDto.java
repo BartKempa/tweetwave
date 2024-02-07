@@ -13,7 +13,8 @@ public class TweetDto {
     private byte[] filePart;
     private int likeRate;
     private int dislikeRate;
-    public TweetDto(Integer id, String description, LocalDateTime dateAdded, String url, String tweetAuthor, byte[] filePart, int likeRate, int dislikeRate) {
+    private int comment;
+    public TweetDto(Integer id, String description, LocalDateTime dateAdded, String url, String tweetAuthor, byte[] filePart, int likeRate, int dislikeRate, int comment) {
         this.id = id;
         this.description = description;
         this.dateAdded = dateAdded;
@@ -22,6 +23,7 @@ public class TweetDto {
         this.filePart = filePart;
         this.likeRate = likeRate;
         this.dislikeRate = dislikeRate;
+        this.comment = comment;
     }
 
     public TweetDto(String description, LocalDateTime dateAdded, String url, String tweetAuthor, byte[] filePart) {
