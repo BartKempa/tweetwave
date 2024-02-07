@@ -1,5 +1,6 @@
 package com.example.tweetwave.domain.api;
 
+import com.example.tweetwave.domain.comment.CommentDao;
 import com.example.tweetwave.domain.rate.RateDao;
 import com.example.tweetwave.domain.tweet.Tweet;
 import com.example.tweetwave.domain.tweet.TweetDao;
@@ -41,6 +42,7 @@ public class TweetService {
     private static class TweetMapper {
         private final UserDao userDao = new UserDao();
         private final RateDao rateDao = new RateDao();
+        private final CommentDao commentDao = new CommentDao();
         TweetDto map(Tweet tweet) {
             return new TweetDto(
                     tweet.getId(),
@@ -50,7 +52,9 @@ public class TweetService {
                     userDao.findById(tweet.getUserId()).orElseThrow().getUsername(),
                     tweet.getFilePart(),
                     rateDao.countLikeByTweetId(tweet.getId()),
-                    rateDao.countDislikeByTweetId(tweet.getId())
+                    rateDao.countDislikeByTweetId(tweet.getId()),
+                    commentDao.countCommentsByTweetId(tweet.getId())
+
             );
         }
 
