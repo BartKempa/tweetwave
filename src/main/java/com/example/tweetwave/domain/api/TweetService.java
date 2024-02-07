@@ -54,7 +54,6 @@ public class TweetService {
                     rateDao.countLikeByTweetId(tweet.getId()),
                     rateDao.countDislikeByTweetId(tweet.getId()),
                     commentDao.countCommentsByTweetId(tweet.getId())
-
             );
         }
 

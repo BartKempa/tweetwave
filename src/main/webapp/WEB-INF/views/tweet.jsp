@@ -25,7 +25,7 @@
             <section class="tweet-bar">
                 <a href="#" class="comment">
                     <i class="fa-regular fa-comment"></i>
-                    <p class="tweet-comments">12</p>
+                    <p class="tweet-comments">${tweet.comment}</p>
                 </a>
 
                 <a href="${pageContext.request.contextPath.concat('/tweet/rate?id=').concat(tweet.id).concat('&type=LIKE')}" class="tweet-like">
