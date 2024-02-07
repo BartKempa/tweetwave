@@ -64,6 +64,26 @@ public class CommentDao {
         }
     }
 
+    public int countCommentsByTweetId(int tweetId){
+        final String query ="""
+                SELECT COUNT(tweet_id)
+                FROM
+                    comment
+                WHERE
+                    tweet_id = ?
+                """;
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)){
+            statement.setInt(1, tweetId);
+            ResultSet resultSet = statement.executeQuery();
+            resultSet.next();
+            return resultSet.getInt(1);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
     private Comment mapRow(ResultSet resultSet) throws SQLException {
         return new Comment(
                 resultSet.getInt("id"),

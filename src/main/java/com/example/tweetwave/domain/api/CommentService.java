@@ -25,7 +25,7 @@ public class CommentService {
                 .collect(Collectors.toList());
     }
 
-    public int
+
     private static class CommentMapper{
         private final UserDao userDao = new UserDao();
         Comment map(CommentDto commentDto){

@@ -61,7 +61,13 @@ public class TweetDto {
         return likeRate;
     }
 
+    public int getComment() {
+        return comment;
+    }
+
     public int getDislikeRate() {
         return dislikeRate;
+
+
     }
 }
