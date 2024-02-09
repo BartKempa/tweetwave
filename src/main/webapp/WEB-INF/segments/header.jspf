@@ -9,7 +9,7 @@
 <%@ page import="java.time.format.DateTimeFormatter" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <nav class="navbar">
-    <a href="#" class="logo">
+    <a href="${pageContext.request.contextPath}" class="logo">
         <i class="fa-solid fa-dove fa-lg"></i>
         TweetWave
     </a>
