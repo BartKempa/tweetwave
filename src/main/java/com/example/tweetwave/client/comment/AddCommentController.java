@@ -11,8 +11,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 
-@WebServlet
+@WebServlet("/comment/add")
 @ServletSecurity(
         httpMethodConstraints = {
                 @HttpMethodConstraint(value = "GET", rolesAllowed = "USER")
@@ -26,6 +27,14 @@ public class AddCommentController extends HttpServlet {
                 CommentDto commentDto = createCommentDto(req);
                 commentService.add(commentDto);
                 resp.sendRedirect(req.getContextPath() + "/");
+        }
+
+        private CommentDto createCommentDto(HttpServletRequest req) {
+                String commentAuthor = req.getUserPrincipal().getName();
+                Integer tweetId = Integer.valueOf(req.getParameter("id"));
+                LocalDateTime dateAdded = LocalDateTime.now();
+                String description = req.getParameter("description");
+                return new CommentDto(commentAuthor, tweetId, dateAdded, description);
         }
 
 
