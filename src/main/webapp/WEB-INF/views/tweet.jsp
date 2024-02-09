@@ -41,7 +41,7 @@
         </article>
 
         <article class="tweet">
-            <form action="${pageContext.request.contextPath}/comment/add" method="post">
+            <form action="${pageContext.request.contextPath.concat('/comment/add?id=').concat(tweet.id)}" method="post">
                 <h3 class="comment-form-title">Dodaj komentarz: </h3>
                 <div class="input-container">
                     <textarea name="description" class="comment-text-field" placeholder="Opublikuj swoją odpowiedz"></textarea>

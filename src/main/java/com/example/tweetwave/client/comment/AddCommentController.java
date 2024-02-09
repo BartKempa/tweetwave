@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @WebServlet("/comment/add")
 @ServletSecurity(
         httpMethodConstraints = {
-                @HttpMethodConstraint(value = "GET", rolesAllowed = "USER")
+                @HttpMethodConstraint(value = "POST", rolesAllowed = "USER")
         }
 )
 public class AddCommentController extends HttpServlet {

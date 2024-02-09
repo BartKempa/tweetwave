@@ -30,7 +30,7 @@ public class CommentDao {
         try(Connection connection = dataSource.getConnection();
             PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
            statement.setInt(1, comment.getUserId());
-           statement.setInt(1, comment.getTweetId());
+           statement.setInt(2, comment.getTweetId());
            statement.setObject(3, comment.getDateAdded());
            statement.setString(4, comment.getDescription());
            statement.executeUpdate();
