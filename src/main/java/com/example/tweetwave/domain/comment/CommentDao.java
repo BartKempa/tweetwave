@@ -83,7 +83,6 @@ public class CommentDao {
         }
     }
 
-
     private Comment mapRow(ResultSet resultSet) throws SQLException {
         return new Comment(
                 resultSet.getInt("id"),

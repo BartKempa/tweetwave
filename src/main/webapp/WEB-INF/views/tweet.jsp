@@ -8,6 +8,7 @@
     <meta charset="UTF-8">
     <title>Pojedynczy tweet - TweetWave</title>
     <%@include file="../segments/stylesheet.jspf"%>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/add-comment.css">
 </head>
 <body>
 <div class="container">
@@ -37,6 +38,18 @@
                     <p class="tweet-dislikes">${tweet.dislikeRate}</p>
                 </a>
             </section>
+        </article>
+
+        <article class="tweet">
+            <form action="${pageContext.request.contextPath}/comment/add" method="post">
+                <h3>Dodaj komentarz: </h3>
+                <div>
+                    <textarea name="description" class="input-container" placeholder="Opublikuj swoją odpowiedz"></textarea>
+                </div>
+                <div class="button-container">
+                    <button class="tweet-form-button">Dodaj komentarz</button>
+                </div>
+            </form>
         </article>
 
         <c:forEach var="comment" items="${requestScope.comments}">
