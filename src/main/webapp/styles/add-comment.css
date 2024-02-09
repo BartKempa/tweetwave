@@ -1,0 +1,38 @@
+
+.comment-form-button {
+    background-color: dodgerblue;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    position: relative;
+    text-align: center;
+    border-radius: 12px;
+    font-size: 16px;
+    letter-spacing: .01em;
+}
+
+.comment-form-title {
+    font-size: 22px;
+    margin: 22px auto;
+}
+
+.input-container,
+.button-container {
+    margin-bottom: 22px;
+    position: relative;
+}
+
+.comment-text-field {
+    font: 300 1rem 'Roboto', sans-serif;
+    height: 100px;
+    width: 400px;
+    resize: vertical;
+    font-size: 16px;
+    border-radius: 12px;
+    position: relative;
+    padding: 10px 10px;
+}
+
+
+
+

@@ -42,12 +42,12 @@
 
         <article class="tweet">
             <form action="${pageContext.request.contextPath}/comment/add" method="post">
-                <h3>Dodaj komentarz: </h3>
-                <div>
-                    <textarea name="description" class="input-container" placeholder="Opublikuj swoją odpowiedz"></textarea>
+                <h3 class="comment-form-title">Dodaj komentarz: </h3>
+                <div class="input-container">
+                    <textarea name="description" class="comment-text-field" placeholder="Opublikuj swoją odpowiedz"></textarea>
                 </div>
                 <div class="button-container">
-                    <button class="tweet-form-button">Dodaj komentarz</button>
+                    <button class="comment-form-button">Dodaj komentarz</button>
                 </div>
             </form>
         </article>
