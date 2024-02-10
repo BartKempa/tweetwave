@@ -4,7 +4,9 @@ import com.example.tweetwave.domain.api.TweetDto;
 import com.example.tweetwave.domain.api.TweetService;
 import com.example.tweetwave.domain.tweet.Tweet;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.HttpMethodConstraint;
 import jakarta.servlet.annotation.MultipartConfig;
+import jakarta.servlet.annotation.ServletSecurity;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -17,6 +19,12 @@ import java.time.LocalDateTime;
 
 @WebServlet("/tweet/add")
 @MultipartConfig(maxFileSize = 16177215)
+@ServletSecurity(
+        httpMethodConstraints = {
+                @HttpMethodConstraint(value = "GET", rolesAllowed = "USER"),
+                @HttpMethodConstraint(value = "POST", rolesAllowed = "USER")
+        }
+)
 public class AddTweetController extends HttpServlet {
     private TweetService tweetService = new TweetService();
 
