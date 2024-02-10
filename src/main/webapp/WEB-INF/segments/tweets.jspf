@@ -21,7 +21,7 @@
             <a href="<c:out value="${tweet.url}"/>" class="tweet-link"><c:out value="${tweet.url}"/></a>
 
             <section class="tweet-bar">
-                <a href="#" class="comment">
+                <a href="${pageContext.request.contextPath.concat('/tweet?id=').concat(tweet.id)}" class="comment">
                     <i class="fa-regular fa-comment"></i>
                     <p class="tweet-comments">${tweet.comment}</p>
                 </a>
