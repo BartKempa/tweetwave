@@ -16,7 +16,7 @@
             <%@include file="../segments/tweets.jspf"%>
         </main>
         <%@include file="../segments/footer.jspf"%>
-        <a href="#" class="user-profile">
+        <a href="#" class="user-profile-button">
             <i class="fa-solid fa-user"></i>
         </a>
     </div>
