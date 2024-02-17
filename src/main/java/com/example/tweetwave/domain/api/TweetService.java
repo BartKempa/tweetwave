@@ -39,6 +39,13 @@ public class TweetService {
                 .map(tweetMapper::map);
     }
 
+    public List<TweetDto> findAllUserTweets(int userId){
+        return tweetDao.findAllUserTweets(userId)
+                .stream()
+                .map(tweetMapper::map)
+                .collect(Collectors.toList());
+    }
+
     private static class TweetMapper {
         private final UserDao userDao = new UserDao();
         private final RateDao rateDao = new RateDao();
