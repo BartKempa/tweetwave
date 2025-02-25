@@ -1,6 +1,6 @@
 # TweetWave 
 
-Tarining project TweetWave is a web application for tweets. The main purpose of creating it was to learn Java, MySql and JavaServer Pages
+Training project TweetWave is a web application for tweets. The main purpose of creating it was to learn Java, MySql and JavaServer Pages
 
 ## Used Tools
 
