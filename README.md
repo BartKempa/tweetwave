@@ -1,16 +1,19 @@
-# TweetWave 
+# TweetWave  
 
-Training project TweetWave is a web application for tweets. The main purpose of creating it was to learn Java, MySql and JavaServer Pages
+**TweetWave** is a training project – a web application for posting and managing tweets.  
+The main purpose of this project was to learn Java, MySQL, and JavaServer Pages (JSP).  
 
-## Used Tools
+## Used Tools  
 
-For the implementation the following tools and technologies are used:
+The following tools and technologies were used in the implementation:  
 
-* Java 17
-* JDBC
-* Maven v4.0.0
-* MySQL
-* HTML
-* CSS
-* JSP
-* IntelliJ IDEA
+- Java 17  
+- JDBC  
+- Maven 4.0.0  
+- MySQL  
+- HTML  
+- CSS  
+- JSP  
+- IntelliJ IDEA  
+
+This project was developed without frameworks to focus on core web technologies.
